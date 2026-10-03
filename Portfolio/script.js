@@ -34,7 +34,7 @@
 
   function updateActiveNav() {
     let current = '';
-    const scrollPosition = window.pageYOffset + 120;
+    const scrollPosition = window.pageYOffset + 200;
 
     sections.forEach(function (section) {
       const sectionTop = section.offsetTop;
@@ -136,4 +136,18 @@
   /* ---------- 7. LOG ---------- */
   console.log('%c✨ Shreya Bhosale · AI & ML Portfolio Loaded ✨',
     'color: #10b981; font-size: 14px; font-weight: bold;');
+
+  /* ---------- 8. FORCE CONTACT ACTIVE AT BOTTOM ---------- */
+  window.addEventListener('scroll', function () {
+    const isBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 5;
+    if (isBottom) {
+      navItems.forEach(function (link) {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#contact') {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+
 })();
